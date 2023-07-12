@@ -1,56 +1,13 @@
-# The Full Stack 7-Steps MLOps Framework
+# The Full Stack MLOps Framework
 
-`Learn MLE & MLOps for free by designing, building, deploying and monitoring an end-to-end ML batch system | source code + 2.5 hours of reading & video materials on Medium`
+This repository contains a walk-through step-by-step through how to **design, implement, deploy, and monitor an ML batch system** using **MLOps good practices**. During the course, you will build a production-ready model forecasting energy consumption levels for the next 24 hours across multiple consumer types from Denmark.
 
-This repository contains a **7-lesson course** that will walk you step-by-step through how to **design, implement, deploy, and monitor an ML batch system** using **MLOps good practices**. During the course, you will build a production-ready model forecasting energy consumption levels for the next 24 hours across multiple consumer types from Denmark.
+More concretely, you will learn how to build, train, serve, and monitor an ML model using a batch architecture. Also, you will learn how to integrate an experiment tracker, a model registry, a feature store, Docker, Airflow, GitHub Actions, and more!
 
-More concretely, you will learn how to build, train, serve, and monitor an ML model using a batch architecture. Also, you will learn how to integrate an experiment tracker, a model registry, a feature store, Docker, Airflow, GitHub Actions and more!
-
-This **course targets** *mid/advanced ML engineers* who want to *level up their skills* by building their own end-to-end projects or *SWE* who want to *transition to ML engineering*.
-
-------
-
-Following the **documentation on GitHub** and the [lessons on Medium](#lessons), you have *2.5 hours of reading & video materials*, which will help you understand every piece of the code!
-
-**At the end of the course, you will know how to build everything from the diagram below 👇**
-
-Don't worry if something doesn't make sense to you. We will explain everything in detail in the [Medium lessons](#lessons).
-
-<p align="center">
-  <img src="images/architecture.png">
-</p>
-
-<div align="center">
-  <a href="https://youtu.be/OKk9U310qYE">
-    <strong>Check out the video below to better understand what you will build during this course 👇</strong>
-    <br/>
-    <br/>
-    <img src="images/screenshot_introduction_video.png" alt="Introduction Video" style="width:75%;">
-  </a>
-</div>
-
-<br/>
-<br/>
-
-*You can safely use this code as you like, as long as you respect the terms and agreement of the MIT License.*
-
-``<<< Using all the tools suggested in the course will be free of charge, except the ones from Lesson 7, where you will be deploying your application to GCP which will cost you ~20$. >>>``
-
-# Table of Contents
-1. [What You Will Learn](#learn)
-2. [Lessons & Tutorials](#lessons)
-3. [Data](#data)
-4. [Code Structure](#structure)
-5. [Set Up Additional Tools](#tools)
-6. [Usage](#usage)
-7. [Installation & Usage for Development](#installation)
-8. [Licensing & Contributing](#licensing)
-
---------
 
 # 🤔 1. What You Will Learn <a name=learn></a>
 **At the end of this 7 lessons course, you will know how to:**
-* design a batch-serving architecture
+* Design a batch-serving architecture
 * use Hopsworks as a feature store
 * design a feature engineering pipeline that reads data from an API
 * build a training pipeline with hyper-parameter tunning
@@ -64,28 +21,13 @@ Don't worry if something doesn't make sense to you. We will explain everything i
 * use Great Expectations to ensure data validation and integrity
 * monitor the performance of the predictions over time
 * deploy everything to GCP
-* build a CI/CD pipeline using GitHub Actions
+* Build a CI/CD pipeline using GitHub Actions
 
 If that sounds like a lot, don't worry. After you cover this course, you will understand everything we said before. Most importantly, you will know WHY we used all these tools and how they work together as a system.
 
 # 🤌 2. Lessons & Tutorials <a name=lessons></a>
 
 The course consists of 7 lessons hosted on Medium Towards Data Science publication. We also provide a bonus lesson where we openly discuss potential improvements that could be made to the current architecture and trade-offs we had to take during the course. The course adds up to *2.5 hours of reading and video materials*. 
-
-`We recommend running the code along the articles to get the best out of this course, as we provide detailed instructions to set everything up.`
-
-**👇 Access the step-by-step lessons on Medium 👇**
-1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://medium.com/towards-data-science/a-framework-for-building-a-production-ready-feature-engineering-pipeline-f0b29609b20f)
-2. [Training Pipelines. ML Platforms. Hyperparameter Tuning.](https://medium.com/towards-data-science/a-guide-to-building-effective-training-pipelines-for-maximum-results-6fdaef594cee)
-3. [Batch Prediction Pipeline. Package Python Modules with Poetry.](https://medium.com/towards-data-science/unlock-the-secret-to-efficient-batch-prediction-pipelines-using-python-a-feature-store-and-gcs-17a1462ca489)
-4. [Private PyPi Server. Orchestrate Everything with Airflow.](https://towardsdatascience.com/unlocking-mlops-using-airflow-a-comprehensive-guide-to-ml-system-orchestration-880aa9be8cff)
-5. [Data Validation for Quality and Integrity using GE. Model Performance Continuous Monitoring.](https://towardsdatascience.com/ensuring-trustworthy-ml-systems-with-data-validation-and-real-time-monitoring-89ab079f4360)
-6. [Consume and Visualize your Model's Predictions using FastAPI and Streamlit. Dockerize Everything.](https://towardsdatascience.com/fastapi-and-streamlit-the-python-duo-you-must-know-about-72825def1243)
-7. [Deploy All the ML Components to GCP. Build a CI/CD Pipeline Using Github Actions.](https://towardsdatascience.com/seamless-ci-cd-pipelines-with-github-actions-on-gcp-your-tools-for-effective-mlops-96f676f72012)
-8. [\[Bonus\] Behind the Scenes of an ‘Imperfect’ ML Project — Lessons and Insights.](https://towardsdatascience.com/imperfections-unveiled-the-intriguing-reality-behind-our-mlops-course-creation-6ff7d52ecb7e)
-
----------
-
 
 # 📊 3. Data <a name=data></a>
 We used an open API that provides hourly energy consumption values for all the energy consumer types within Denmark.
@@ -98,7 +40,7 @@ The data has 4 main attributes:
 * **Consumer Type**: The consumer type is the Industry Code DE35, owned and maintained by Danish Energy.
 * **Total Consumption**: Total electricity consumption in kWh
 
-**Note:** The observations have a lag of 15 days! But for our demo use case, that is not a problem, as we can simulate the same steps as it would be in real time.
+**Note:** The observations have a lag of 15 days! But for our demo use case, that is not a problem, as we can simulate the same steps as it would in real-time.
 
 <p align="center">
   <img src="images/forecasting_demo_screenshot.png">
@@ -110,9 +52,6 @@ We will model the data as multiple time series. Each unique price area and consu
 
 Thus, we will build a model that independently forecasts the energy consumption for the next 24 hours for every time series.
 
-[Check out this video to better understand what the data looks like.](https://youtu.be/OKk9U310qYE)
-
-----------
 
 # 🧬 4. Code Structure <a name=structure></a>
 
@@ -469,11 +408,8 @@ docker run -p 80:8080 -v ~/.htpasswd:/data/.htpasswd pypiserver/pypiserver:lates
 
 ## The Web App
 
-Check out [Lesson 6](https://medium.com/towards-data-science/fastapi-and-streamlit-the-python-duo-you-must-know-about-72825def1243) on Medium to better understand how the web app components work together.
-
 Fortunately, everything is a lot simpler when setting up the web app. This time, we need to configure only a few credentials. <br/>
 
-**Important:** If you plan to run the web app components without docker-compose, check the [🧑‍💻 7. Installation & Usage for Development](https://github.com/iusztinpaul/energy-forecasting/tree/main#-7-installation--usage-for-development-) section.
 
 Copy the bucket read-only GCP credentials to the root directory of your `energy-forecasting` project:
 ```shell
@@ -589,41 +525,5 @@ You can also run the whole web app in development mode using Docker:
 docker compose -f deploy/app-docker-compose.yml -f deploy/app-docker-compose.local.yml --project-directory . up --build
 ```
 
-------
 
-# 🏆 8. Licensing & Contributing <a name=licensing></a>
-
-The code is under the MIT License. Thus, as long as you keep distributing the License, feel free to share, clone, or change the code as you like.
-
-Also, if you find any bugs or missing pieces in the documentation, I encourage you to add an issue on GitHub or a PR. Based on your support, I will adapt the code and docs for future readers.
-
-Furthermore, you can contact me directly on [LinkedIn](https://www.linkedin.com/in/pauliusztin/) if you have any questions.
-
-I also want to thank [Kurtis Pykes](https://github.com/kurtispykes) for being an awesome copilot and helping me make this course happen.
-
------
-
-### Let's connect if you want to level up in designing and productionizing ML systems:
-
-I post almost daily AI content on 👇🏼
-
-[<img alt="linkedin" width="40px" src="images/linkedin.png" align="left" style="padding-right:20px;"/>](https://www.linkedin.com/in/pauliusztin)
-[<img alt="medium" width="40px" src="images/medium.png" align="left" style="padding-right:20px;"/>](https://pauliusztin.medium.com/)
-[<img alt="substack" width="35px" src="images/substack.png" align="left" style="padding-right:20px;"/>](https://pauliusztin.substack.com/)
-[<img alt="gmail" width="40px" src="images/gmail.png" align="left" style="padding-right:20px;"/>](mailto:p.b.iusztin@gmail.com?subject=[From%20GitHub]%20ML%20Collaborations)
-[<img alt="twitter" width="40px" src="images/twitter.png" align="left" style="padding-right:20px;"/>](https://twitter.com/iusztinpaul)
-
-<br/>
-<br/>
-<br/>
-
-Subscribe to my [ML engineering weekly newsletter](https://pauliusztin.substack.com/).
-
------
-
-`🎨 Creating content takes me a lot of time. If you enjoyed my work, you could support me by:`
-1. **joining Medium** through [**my referral link**](https://medium.com/membership/@pauliusztin), you can support me without any extra cost while enjoying limitless access to Medium’s rich collection of stories;
-2. [**buying me a coffee.**](https://www.buymeacoffee.com/pauliusztin)
-
-<br/>Thank you ✌🏼 !<br/>
 
