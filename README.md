@@ -83,9 +83,7 @@ To follow the structure in its natural flow, read the folders in the following o
 6. `app-frontend` & `app-monitoring`
 7. `.github`
 
-**Read the Medium articles listed in the [Lessons & Tutorials](#lessons) section for the whole experience.**
-<br/>
-<br/>
+
 
 -------
 
@@ -100,8 +98,6 @@ cp .env.default .env
 ... and complete what is surrounded by `<...>`. For now, don't do anything. We will explain in detail in later steps what you have to do. 
 
 If you have problems during the setup, please leave us an issue, and we will respond to you and update the README for future readers.
-
-Also, if you have any questions, you can contact me directly on [LinkedIn](https://www.linkedin.com/in/pauliusztin/).
 
 ## Poetry
 ##### ``<< free usage >>``
@@ -180,7 +176,6 @@ cat ~/.config/pypoetry/auth.toml
 
 You will use [Hopsworks](https://www.hopsworks.ai/) as your serverless feature store. Thus, you have to create an account and a project on Hopsworks. We will show you how to configure the code to use your Hopsworks project later.
 
-[We explained on Medium in **Lesson 1** how to create a Hopsworks API Key.](https://medium.com/towards-data-science/a-framework-for-building-a-production-ready-feature-engineering-pipeline-f0b29609b20f) But long story short, you can go to your Hopsworks account settings and get the API Key from there. Afterward, you must create a new project and add these credentials to the `.env` file under the `FS_` prefix.
 
 **!!!** Be careful to name your project differently than **energy_consumption,** as Hopsworks requires unique names across its serverless deployment.
 
@@ -193,8 +188,6 @@ You will use [Hopsworks](https://www.hopsworks.ai/) as your serverless feature s
 ##### ``<< free usage >>``
 
 You will use Weights & Biases as your serverless ML platform. Thus, you must create an account and a project on Weights & Biases. We will show you how to configure the code to use your W&B project later.
-
-[On Medium, we explained in **Lesson 2** how to create an API Key on W&B.](https://towardsdatascience.com/a-guide-to-building-effective-training-pipelines-for-maximum-results-6fdaef594cee) But long story short, you can go to your W&B user settings and create the API Key from there and the W&B entity & project. After you have to add these credentials to the `.env` file under the `WANDB_` prefix.
 
 **If you want everything to work with the default settings, use the following naming conventions:**
 - create an `entity` called `teaching-mlops`
@@ -246,8 +239,6 @@ Your `bucket read-only service account` should have assigned the following role:
 - rename your downloaded `admin` JSON service key to `admin-buckets.json`
 - rename your downloaded `read-only` JSON service key to `read-buckets.json`
 
-[Check out **Lesson 3** on Medium to better understand **how we set up the GCP bucket** and its role in the batch prediction pipeline.](https://towardsdatascience.com/unlock-the-secret-to-efficient-batch-prediction-pipelines-using-python-a-feature-store-and-gcs-17a1462ca489).
-
 **NOTE:** Don't forget to add the GCP credentials to the `.env` file under the `GOOGLE_CLOUD_` prefix.
 
 
@@ -272,18 +263,14 @@ See [this document](/README_DEPLOY.md) for detailed instructions.
 
 If you have problems during the usage instructions, please leave us an issue, and we will respond to you and update the README for future readers.
 
-Also, if you have any questions, you can contact me directly on [LinkedIn](https://www.linkedin.com/in/pauliusztin/).
 
 ## The Pipeline
-
-Check out [Lesson 4](https://towardsdatascience.com/unlocking-mlops-using-airflow-a-comprehensive-guide-to-ml-system-orchestration-880aa9be8cff) on Medium to better understand how everything is orchestrated using Airflow. 
 
 #### Run 
 You will run the pipeline using Airflow (`free usage`). Don't be scared. Docker makes everything very simple to set up.
 
 **Note:** We also hooked the **private PyPi server** in the same docker-compose.yaml file with Airflow. Thus, everything will start with one command.
 
-**Important:** If you plan to run the pipeline outside Airflow, be sure to check the [🧑‍💻 7. Installation & Usage for Development](https://github.com/iusztinpaul/energy-forecasting/tree/main#-7-installation--usage-for-development-) section.
 
 Run:
 ```shell
@@ -466,8 +453,6 @@ All the modules support Poetry. Thus the installation is straightforward.
 **Note 1:** Just ensure you have installed Python 3.9, not Python 3.8 or Python 3.10.
 
 **Note 2:** During the course, we used `Poetry 1.4.2`. To avoid potential issues when installing the dependencies using Poetry, we recommend you use the same version (or if there are any errors & you have a different version, you can delete and regenerate the `poetry.lock` file).
-
-**Note 3:** If you are working on macOS M1/M2, be sure to check the [macOS M1/M2 Poetry Issues](https://github.com/iusztinpaul/energy-forecasting/tree/main#macos-m1m2-poetry-issues) section.
 
 ## The Pipeline
 
